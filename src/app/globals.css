@@ -1,0 +1,196 @@
+@import url('../../node_modules/bootstrap/dist/css/bootstrap.min.css');
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#catDropdown{
+height: 50vh;
+overflow-y: scroll;
+}
+
+body{
+  background-color: #f3f9fb;
+}
+#searchbox{
+  background-color: #f3f9fb;
+  display: flex;
+  align-items: center;
+  padding: 0px 10px;
+  border-radius: 30px;
+  gap: 10px;
+  margin-right: 10px;
+}
+#searchinput{
+  border: none;
+  background-color: transparent;
+  align-self: stretch;
+  border-radius: 30px;
+  font-size: larger;
+  padding: 10px;
+}
+
+#searchinput:focus{
+  outline: none;
+}
+
+
+nav ul li Link{
+  font-size: large;
+}
+
+.carousel{
+  height: 30vh;
+}
+
+.carousel img{
+  height: 30vh;
+  object-fit: contain;
+  object-position: top;
+}
+
+.card-footer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.card-body{
+  min-height: 30vh;
+}
+
+
+.card-text {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.card-footer {
+  background: #f8f9fa;
+  padding: 10px;
+}
+
+.btn-link {
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.btn-link:hover {
+  text-decoration: underline;
+}
+
+.carousel-control-prev-icon{
+  background-color: black;
+  border-radius: 50%;
+  padding: 50px;
+}
+.carousel-control-next-icon{
+  background-color: black;
+  border-radius: 50%;
+  padding: 50px;
+}
+
+.hscroll{
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 10px;
+}
+
+.hscroll div{
+  width: fit-content;
+  flex-shrink: 0;
+  animation-name:threwandfoward;
+  animation-duration: 20s;
+  animation-iteration-count:1;
+  animation-direction: normal;
+}
+
+
+.hscroll::-webkit-scrollbar{
+  display: none;
+}
+
+#feedback_list_home{
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 10px;
+  overflow-y: hidden;
+}
+#feedback_list_home>div{
+  animation-name:threwandfoward;
+  animation-duration: 10s;
+  animation-direction: reverse;
+  animation-iteration-count:1;
+  animation-timing-function: linear;
+}
+
+#feedback_list_home::-webkit-scrollbar{
+  display: none;
+}
+
+#send_feedback_btn{
+  animation-name:heartbeat;
+  animation-duration: 2s;
+  animation-iteration-count:1;
+}
+
+.hover-primary:hover {
+  color: black !important; /* Bootstrap primary color */
+  transition: color 0.2s ease;
+}
+
+@keyframes heartbeat {
+  0%{
+    transform: scale(1);
+    filter: hue-rotate(0deg);
+   
+  }
+  50%{
+    transform: scale(1.2);
+    filter: hue-rotate(180deg);
+
+  }
+  100%{
+    transform: scale(1);
+    filter: hue-rotate(0deg);
+   
+  }
+  
+}
+
+
+  
+
+
+@keyframes threwandfoward {
+  0%{
+    transform: translateX(0);
+  }
+ 
+  100%{
+    transform: translateX(100px);
+  }
+  
+}
+
+@media screen and (max-width: 768px) {
+  .carousel-control-next-icon, .carousel-control-prev-icon {
+    padding: 20px;
+    transform: scale(0.4);
+  }
+  .carousel{
+    height: 20vh;
+  }
+  #feedback_card{
+    width: 100% !important;
+    padding: 2px;
+    margin:0px !important;
+    box-sizing: border-box;
+  }
+}
