@@ -19,22 +19,30 @@ export async function generateMetadata({ params }) {
   const res = await fetch(fetchUrl, { cache: 'no-store' });
   const product = await res.json();
 
-  const image = `${imagBaseUrl}/${product.image}`.replace(/ /g, '%20');
-  const url = `${baseUrl}/product-details/${pid}/store`;
+  const rawImage = is_asin ? product.thumbnail : `${imagBaseUrl}/${product.image}`;
+
+  const fullImageUrl = encodeURI(rawImage); // double encoding for WhatsApp safety
+  const pageUrl = `${baseUrl}/product-details/${pid}/store`;
 
   return {
     title: product.name || 'Product Details',
     description: product.description || 'Explore product details and deals.',
+    metadataBase: new URL(baseUrl), // helps ensure relative links are resolved
+    icons: {
+      icon: 'logo.png'
+    },
     openGraph: {
       title: product.name || 'Product Details',
-      description: product.description || '',
-      url,
+      description: product.description || 'Explore product details and deals.',
+      url: pageUrl,
       type: 'website',
+      siteName: 'My Store', // Replace with your site name
+      locale: 'en_US',
       images: [
         {
-          url: image,
-          width: 800,
-          height: 600,
+          url: fullImageUrl,
+          width: 1200,
+          height: 630,
           alt: product.name,
         },
       ],
@@ -43,10 +51,11 @@ export async function generateMetadata({ params }) {
       card: 'summary_large_image',
       title: product.name,
       description: product.description,
-      images: [image],
+      images: [fullImageUrl],
     },
   };
 }
+
 
 export default async function Page({ params }) {
   const { pid, store } = params;

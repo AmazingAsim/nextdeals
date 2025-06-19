@@ -6,7 +6,6 @@ import ScrollView from '@/components/ScrollView';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebook,faWhatsapp, faTwitter, faTelegram,faReddit } from '@fortawesome/free-brands-svg-icons'
 export default function ProductDetails({pid,store,product}) {
-
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
   const pathname = usePathname();
 
