@@ -26,13 +26,13 @@ export async function generateMetadata({ params }) {
   return {
     title: product.name || 'Product Details',
     description: product.description || 'Explore product details and deals.',
-    metadataBase: new URL(baseUrl), // helps ensure relative links are resolved
+    // metadataBase: new URL(baseUrl), // helps ensure relative links are resolved
     icons: {
       icon: 'logo.png'
     },
     openGraph: {
       title: product.name || 'Product Details',
-      description: product.description || 'Explore product details and deals.',
+      description: product.description || 'latest deals on latest products at amazon,flipkart,myntra.',
       url: pageUrl,
       type: 'website',
       siteName: 'My Store', // Replace with your site name
