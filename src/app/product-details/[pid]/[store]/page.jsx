@@ -9,9 +9,10 @@ function isAsin(id) {
 }
 
 export async function generateMetadata({ params }) {
-  const { pid } = params;
+  const { pid,store } = params;
   const is_asin = isAsin(pid);
-
+  console.log(pid);
+  console.log(is_asin);
   const fetchUrl = is_asin
     ? `${baseUrl}/product_api/amazon/get-product-by-id.php?id=${pid}`
     : `${baseUrl}/product_api/get-product-by-id.php?id=${pid}`;
