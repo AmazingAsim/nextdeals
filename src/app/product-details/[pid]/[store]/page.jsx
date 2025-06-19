@@ -21,7 +21,7 @@ export async function generateMetadata({ params }) {
   const rawImage = is_asin ? product.thumbnail : `${imagBaseUrl}/${product.image}`;
   console.log(rawImage)
 
-  const pageUrl = `${baseUrl}/product-details/${pid}/store`;
+  const pageUrl =`https://www.spentaconsulting.com/product-details/${pid}/${store}`;
 
   return {
     title: product.name || 'Product Details',
