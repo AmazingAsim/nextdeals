@@ -40,8 +40,8 @@ export async function generateMetadata({ params }) {
       images: [
         {
           url: rawImage,
-          width: 1200,
-          height: 630,
+          width: 400,
+          height: 400,
           alt: product.name,
         },
       ],
