@@ -11,8 +11,6 @@ function isAsin(id) {
 export async function generateMetadata({ params }) {
   const { pid,store } = params;
   const is_asin = isAsin(pid);
-  console.log(pid);
-  console.log(is_asin);
   const fetchUrl = is_asin
     ? `${baseUrl}/product_api/amazon/get-product-by-id.php?id=${pid}`
     : `${baseUrl}/product_api/get-product-by-id.php?id=${pid}`;
@@ -21,8 +19,8 @@ export async function generateMetadata({ params }) {
   const product = await res.json();
 
   const rawImage = is_asin ? product.thumbnail : `${imagBaseUrl}/${product.image}`;
+  console.log(rawImage)
 
-  const fullImageUrl = encodeURI(rawImage); // double encoding for WhatsApp safety
   const pageUrl = `${baseUrl}/product-details/${pid}/store`;
 
   return {
@@ -41,7 +39,7 @@ export async function generateMetadata({ params }) {
       locale: 'en_US',
       images: [
         {
-          url: fullImageUrl,
+          url: rawImage,
           width: 1200,
           height: 630,
           alt: product.name,
@@ -52,7 +50,7 @@ export async function generateMetadata({ params }) {
       card: 'summary_large_image',
       title: product.name,
       description: product.description,
-      images: [fullImageUrl],
+      images: [rawImage],
     },
   };
 }
