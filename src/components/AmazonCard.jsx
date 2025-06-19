@@ -2,6 +2,8 @@
 
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFacebook,faWhatsapp, faTwitter, faTelegram,faReddit } from '@fortawesome/free-brands-svg-icons'
 
 export default function AmazonCard({ product }) {
   const router = useRouter();
@@ -111,7 +113,7 @@ export default function AmazonCard({ product }) {
             rel="noopener noreferrer"
             onClick={(e) => e.stopPropagation()}
           >
-            <i className="fa-brands fa-facebook fs-4 text-primary"></i>
+           <FontAwesomeIcon icon={faFacebook} className="fs-4 text-primary" />
           </a>
           <a
             href={`https://twitter.com/intent/tweet?url=${product_link}&text=${product_link}`}
@@ -119,17 +121,17 @@ export default function AmazonCard({ product }) {
             rel="noopener noreferrer"
             onClick={(e) => e.stopPropagation()}
           >
-            <i className="fa-brands fa-twitter fs-4 text-info"></i>
+           <FontAwesomeIcon icon={faTwitter} className="fs-4 text-info" />
           </a>
           <a
             href={`https://api.whatsapp.com/send?text=${encodeURIComponent(
-              `Check out this product: ${name}\nSale Price: *${selling_price}*\nOriginal Price: *${original_price}*\nhttps://dealsfromamerica.com/product-details.php?id=${asin}&store=amazon\n`
+              `Check out this product: ${name} \n \n  Sale Price: *${selling_price}*\n Original Price: *${original_price}*\n https://dealsfromamerica.com/product-details/${asin}/amazon\n`
             )}`}
             target="_blank"
             rel="noopener noreferrer"
             onClick={(e) => e.stopPropagation()}
           >
-            <i className="fa-brands fa-whatsapp fs-4 text-success"></i>
+           <FontAwesomeIcon icon={faWhatsapp} className="fs-4 text-success" />
           </a>
           <a
             href={`https://www.reddit.com/submit?url=${product_link}`}
@@ -137,7 +139,7 @@ export default function AmazonCard({ product }) {
             rel="noopener noreferrer"
             onClick={(e) => e.stopPropagation()}
           >
-            <i className="fa-brands fa-reddit fs-4 text-danger"></i>
+            <FontAwesomeIcon icon={faReddit} className="fs-4 text-danger" />
           </a>
           <a
             href={`https://telegram.me/share/url?url=${product_link}`}
@@ -145,7 +147,7 @@ export default function AmazonCard({ product }) {
             rel="noopener noreferrer"
             onClick={(e) => e.stopPropagation()}
           >
-            <i className="fa-brands fa-telegram fs-4 text-primary"></i>
+            <FontAwesomeIcon icon={faTelegram} className="fs-4 text-primary" />
           </a>
         </div>
 

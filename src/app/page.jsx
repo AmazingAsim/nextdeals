@@ -7,6 +7,9 @@ export default function Home() {
   return (
     <main>
       <Carousel/>
+      <h1 className="text-center mt-5" style={{fontSize:"20px"}}>
+        Best Deals in America & Discounts on Amazon, Flipkart, Myntra on Latest Products like Phones, Laptops, Watches, Fashion, Electronics, Home Appliances
+      </h1>
       <FeaturedProducts/>
     </main>
   );
