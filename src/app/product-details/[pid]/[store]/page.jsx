@@ -18,7 +18,7 @@ export async function generateMetadata({ params }) {
   const res = await fetch(fetchUrl, { cache: 'no-store' });
   const product = await res.json();
 
-  const rawImage = is_asin ? product.thumbnail : `${imagBaseUrl}/${product.image}`;
+  const rawImage = is_asin ? product.image : `${imagBaseUrl}/${product.image}`;
   console.log(rawImage)
 
   const pageUrl =`https://www.spentaconsulting.com/product-details/${pid}/${store}`;
@@ -27,9 +27,6 @@ export async function generateMetadata({ params }) {
     title: product.name || 'Product Details',
     description: product.description || 'Explore product details and deals.',
     // metadataBase: new URL(baseUrl), // helps ensure relative links are resolved
-    icons: {
-      icon: 'logo.png'
-    },
     openGraph: {
       title: product.name || 'Product Details',
       description: product.description || 'latest deals on latest products at amazon,flipkart,myntra.',
@@ -45,6 +42,9 @@ export async function generateMetadata({ params }) {
           alt: product.name,
         },
       ],
+    },
+    icons: {
+      icon: 'logo.png'
     },
     twitter: {
       card: 'summary_large_image',
