@@ -3,3 +3,4 @@ Allow: /
 User-agent:facebookexternalhit
 Allow: /product-details/:id
 Allow: //product-details/:id/amazon
+Sitemap: https://www.dealsfromamerica.com/sitemap.xml
