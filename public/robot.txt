@@ -1,2 +1,5 @@
-User-agent: *
+User-agent:*
 Allow: /
+User-agent:facebookexternalhit
+Allow: /product-details/:id
+Allow: //product-details/:id/amazon
