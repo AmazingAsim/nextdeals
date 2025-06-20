@@ -22,6 +22,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
         <link rel="shortcut icon" href="logo.png" type="image/x-icon" />
+          <script async src="https://www.googletagmanager.com/gtag/js?id=G-QK2R5LW2W1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments)}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QK2R5LW2W1');
+</script>
       <body className={inter.className}>
         <BootstrapClientLoader />
         <Navbar />
