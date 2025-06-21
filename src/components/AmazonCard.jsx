@@ -31,7 +31,7 @@ export default function AmazonCard({ product }) {
     timeZone: 'America/New_York',
   });
 
-  const imagBaseUrl = 'https://dealsfromamerica.com/employee/uploads/products';
+  const imagBaseUrl = 'https://employee.dealsfromamerica.com/uploads/products';
 
   const handleCardClick = () => {
     router.push(`/product-details/${asin ? asin : id}/amazon`);
@@ -50,11 +50,10 @@ export default function AmazonCard({ product }) {
           </span>
         )}
       </div>
-
       <img
         src={asin ? image : `${imagBaseUrl}/${image}`}
         className="img-fluid rounded"
-        alt={name}
+        alt={`${imagBaseUrl}/${image}`}
         style={{ maxHeight: '200px', objectFit: 'contain', width: '100%' }}
       />
 

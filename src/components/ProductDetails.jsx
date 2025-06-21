@@ -19,7 +19,7 @@ export default function ProductDetails({pid,store,product}) {
 
   
   const is_asin = isAsin(pid);
-  const imagBaseUrl = 'https://dealsfromamerica.com/employee/uploads/products';
+  const imagBaseUrl = 'https://employee.dealsfromamerica.com/uploads/products';
 
   const discount =
     product.original_price !== 0
