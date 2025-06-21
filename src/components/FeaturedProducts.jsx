@@ -75,26 +75,32 @@ export default function FeaturedProducts() {
 
 
 
-      <div className="">
+      <div className="d-flex align-items-center justify-content-between px-5 mt-3">
         <h2 className="border border-0 border-bottom border-3 border-primary fw-bold py-2 ms-5" style={{ width: 'fit-content' }}>
           Top Deals On Amazon
         </h2>
 
-        <div className="d-flex gap-3 ms-5 align-items-center">
-          <label htmlFor="discount-filter" className="form-label fs-5 mt-2  fw-bold">Filter by Discount:</label> <br />
-          <button className='btn btn-outline-primary rounded-5' onClick={() => setDiscountFilter(0)} >All</button>
-          <button className='btn btn-outline-primary rounded-5' onClick={() => setDiscountFilter(10)}>10%</button>
-          <button className='btn btn-outline-primary rounded-5' onClick={() => setDiscountFilter(20)}>20%</button>
-          <button className='btn btn-outline-primary rounded-5' onClick={() => setDiscountFilter(30)}>30%</button>
-          <button className='btn btn-outline-primary rounded-5' onClick={() => setDiscountFilter(40)}>40%</button>
-          <button className='btn btn-outline-primary rounded-5' onClick={() => setDiscountFilter(50)}>50%</button>
-          <button className='btn btn-outline-primary rounded-5' onClick={() => setDiscountFilter(60)}>60%</button>
-          {/* <button className='btn btn-outline-primary rounded-5' onClick={() => setDiscountFilter(70)}>70%</button>
-          <button className='btn btn-outline-primary rounded-5' onClick={() => setDiscountFilter(80)}>80%</button>
-          <button className='btn btn-outline-primary rounded-5' onClick={() => setDiscountFilter(90)}>90%</button>
-          <button className='btn btn-outline-primary rounded-5' onClick={() => setDiscountFilter(100)}>100%</button> */}
+        <div className="d-flex align-items-center">
+          <label htmlFor="discount-filter" className="form-label fw-bold">Filter by Discount:</label>
+          <select
+            id="discount-filter"
+            className="form-select w-auto"
+            onChange={(e) => {
+              setDiscountFilter(Number(e.target.value));
+              fetchProducts(1); // reset fetch on filter change
+            }}
+          >
+            <option value="0">All</option>
+            <option value="10">10% or more</option>
+            <option value="20">20% or more</option>
+            <option value="30">30% or more</option>
+            <option value="40">40% or more</option>
+            <option value="50">50% or more</option>
+            <option value="60">60% or more</option>
+          </select>
         </div>
       </div>
+      <hr />
 
       <div className="container-fluid my-5">
         <div className="row">
