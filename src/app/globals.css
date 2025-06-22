@@ -193,4 +193,14 @@ nav ul li Link{
     margin:0px !important;
     box-sizing: border-box;
   }
+  h2{
+    font-size: 5vw !important;
+  }
+  .filter-label{
+    font-size: 12px !important;
+  }
+
+  .main-header{
+    font-size: 4vw !important;
+  }
 }

@@ -75,13 +75,13 @@ export default function FeaturedProducts() {
 
 
 
-      <div className="d-flex align-items-center justify-content-between px-5 mt-3">
-        <h2 className="border border-0 border-bottom border-3 border-primary fw-bold py-2 ms-5" style={{ width: 'fit-content' }}>
+      <div className='d-flex justify-content-between'>
+        <h2 className='text-primary border-0 border-bottom-2 border-primary '>
           Top Deals On Amazon
         </h2>
 
-        <div className="d-flex align-items-center">
-          <label htmlFor="discount-filter" className="form-label fw-bold">Filter by Discount:</label>
+        <div className="text-end">
+          <label htmlFor="discount-filter" className="form-label fs-6 filter-label ">Filter by Discount:</label>
           <select
             id="discount-filter"
             className="form-select w-auto"
