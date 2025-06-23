@@ -1,7 +1,7 @@
 import ProductDetails from '@/components/ProductDetails'; // This should be your client component
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
-const imagBaseUrl = 'https://dealsfromamerica.com/employee/uploads/products';
+const imagBaseUrl = 'https://employee.dealsfromamerica.com/uploads/products';
 
 function isAsin(id) {
   if (/^\d+$/.test(id)) return false;
