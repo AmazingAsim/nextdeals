@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 export default function Carousel() {
   const baseurl = process.env.NEXT_PUBLIC_BASE_URL;
   const fetchUrl = `${baseurl}/product_api/banners.php`;
-
+  const baseImageUrl = `https://employee.dealsfromamerica.com/uploads/banners`
   const [banners, setBanners] = useState([]);
   const carouselRef = useRef(null);
 
@@ -60,11 +60,13 @@ export default function Carousel() {
             className={`carousel-item ${index === 0 ? 'active' : ''}`}
             key={index}
           >
+            <a href={item.url} target='_blank'>
             <img
-              src={item.image_url}
+              src={`${baseImageUrl}/${item.filename}`}
               className="d-block w-100"
-              alt={`Slide ${index + 1}`}
+              alt={item.image_url}
             />
+            </a>
           </div>
         ))}
       </div>
