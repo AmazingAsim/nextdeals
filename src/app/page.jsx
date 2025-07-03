@@ -7,9 +7,11 @@ export default function Home() {
   return (
     <main>
       <Carousel/>
-      <h1 className="text-center mt-1 display-6 main-header">
+      <div className="container">
+      <h1 className="text-center mt-1 fs-6 main-header text-primary">
         Best Deals in America & Discounts on Amazon,Walmart,Target,  on Latest Products like Phones, Laptops, Watches, Fashion, Electronics, Home Appliances
       </h1>
+      </div>
       <FeaturedProducts/>
     </main>
   );
