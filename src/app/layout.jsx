@@ -33,13 +33,13 @@ export default function RootLayout({ children }) {
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'G-QK2R5LW2W1');
+              gtag('config', 'G-7G8EYK7T5V');
             `,
           }}
         />
 
         <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=G-QK2R5LW2W1`}
+          src={`https://www.googletagmanager.com/gtag/js?id=G-7G8EYK7T5V`}
           strategy="afterInteractive"
         />
       </head>
