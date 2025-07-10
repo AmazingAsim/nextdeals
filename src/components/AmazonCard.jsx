@@ -22,6 +22,8 @@ export default function AmazonCard({ product }) {
     id,
   } = product;
 
+
+
   const discount = (((original_price - selling_price) / original_price) * 100);
   const formattedDiscount = discount.toFixed(2);
   const dealType = discount > 60 ? 'Excellent Deal' : discount > 30 ? 'Hot Deal' : '';
@@ -124,7 +126,7 @@ export default function AmazonCard({ product }) {
           </a>
           <a
             href={`https://api.whatsapp.com/send?text=${encodeURIComponent(
-              `Check out this product: ${name} \n \n  Sale Price: *${selling_price}*\n Original Price: *${original_price}*\n https://dealsfromamerica.com/product-details/${asin}/amazon\n`
+              `Check out this product: ${name} \n \n  Sale Price: *${selling_price}*\n Original Price: *${original_price}*\n https://dealsfromamerica.com/product-details/${asin?asin:id}/amazon\n`
             )}`}
             target="_blank"
             rel="noopener noreferrer"

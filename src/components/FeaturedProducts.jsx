@@ -12,14 +12,14 @@ export default function FeaturedProducts() {
   const [loading, setLoading] = useState(false);
   const [hasMore, setHasMore] = useState(true);
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
-
   const fetchUrl = `${baseUrl}/product_api/amazon/fetch_products.php`;
+ 
 
   const fetchProducts = async (newPage = page) => {
     if (!hasMore && newPage !== 1) return;
     setLoading(true);
     try {
-      const res = await fetch(`${fetchUrl}?limit=50&page=${newPage}`, {
+      const res = await fetch(`${fetchUrl}?limit=20&page=${newPage}`, {
         method: 'GET',
         mode: 'cors',
       });
