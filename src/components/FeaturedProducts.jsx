@@ -69,7 +69,7 @@ export default function FeaturedProducts() {
     <div className="container-fluid mt-3">
       {/* SEO Metadata (Next.js Head component) */}
       <Head>
-        <title>Deals In America</title>
+        <title>Deals Of America</title>
         <meta name="description" content="Top Amazon deals in America" />
       </Head>
 
@@ -77,7 +77,7 @@ export default function FeaturedProducts() {
 
       <div className='d-flex justify-content-between'>
         <h2 className='text-primary border-0 border-bottom-2 border-primary '>
-          Top Deals On Amazon
+          Deals On Amazon
         </h2>
 
         <div className="text-end">

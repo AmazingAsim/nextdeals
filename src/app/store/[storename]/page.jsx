@@ -67,7 +67,7 @@ export default function StorePage() {
 
   return (
     <div className="px-5">
-      <h1 className="display-6 border-bottom border-3 border-primary mb-5 py-4">See Latest Deals from {storename}</h1>
+      <h1 className="display-6 border-bottom border-3 border-primary mb-5 py-4">Latest Deals from {storename}</h1>
       <div className="row">
         {products.map((item, index) => (
           <div className="col-md-4" key={index}>

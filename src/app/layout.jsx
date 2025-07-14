@@ -11,7 +11,7 @@ const BootstrapClientLoader = dynamic(() => import('@/components/BootstrapClient
   ssr: false,
 });
 export const metadata = {
-  title: "Deals From America || America,Shoping,Deals,Discounts",
+  title: "Deals of America || Deals from america, coupon codes for amazon",
   description: "best deals on goods in america on latest products from amazon,flipkart,myntra and more",
   icons: {
     icon: "logo.png",
