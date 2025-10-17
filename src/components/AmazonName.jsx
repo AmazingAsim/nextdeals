@@ -20,7 +20,7 @@ export default function AmazonName(props) {
     
     try {
       const res = await fetch(
-        `${fetchUrl}?&limit=50&page=${newPage}&name=${encodeURIComponent(productname)}`,
+        `${fetchUrl}?&limit=50&page=${newPage}&name=${decodeURIComponent(productname)}`,
         { method: "GET", mode: "cors" }
       );
       
@@ -66,7 +66,7 @@ export default function AmazonName(props) {
     <div className="container mt-3">
       <div className="containe my-5">
         <div className="d-flex justify-content-between align-items-center">
-      <h3 className="display-6">Top deals on {productname}</h3>
+      <h3 className="display-6">Top deals on {decodeURIComponent(productname)}</h3>
            <div className="d-flex gap-3 ms-5 align-items-center">
           <label htmlFor="discount-filter" className="form-label fw-bold">Filter by Discount:</label>
           <select
