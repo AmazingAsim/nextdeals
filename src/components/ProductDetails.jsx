@@ -1,5 +1,5 @@
 'use client';
-
+import { useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
 import ScrollView from '@/components/ScrollView';
@@ -8,7 +8,7 @@ import { faFacebook,faWhatsapp, faTwitter, faTelegram,faReddit } from '@fortawes
 export default function ProductDetails({pid,store,product}) {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
   const pathname = usePathname();
-
+  const [imageUrl, setImageUrl] = useState('');
   const currenturl = `${baseUrl}${pathname}`;
 
     function isAsin(id) {
@@ -33,7 +33,21 @@ export default function ProductDetails({pid,store,product}) {
 
 
   const encodeSpacesInUrl = (url) => url.replace(/ /g, '%20');
-
+   useEffect(()=>{
+     
+ if(is_asin){
+     setImageUrl(product.image)
+   }
+   else{
+     if(product.image.match(/^https?:\/\//)){
+       setImageUrl(product.image)
+     }
+     else{
+       i = encodeSpacesInUrl(`${imagBaseUrl}/${product.image}`);
+       setImageUrl(i)
+     }
+   }
+   },[product])
 
   return (
     <div>
@@ -92,7 +106,7 @@ export default function ProductDetails({pid,store,product}) {
         <div className="row">
           <div className="col-md-4">
             <img
-              src={is_asin? product.image: encodeSpacesInUrl(`${imagBaseUrl}/${product.image}`)}
+              src={is_asin? product.image: imageUrl}
               className="img-fluid rounded"
               alt={product.name}
               style={{ objectFit: 'cover', width: store ? '70%' : '100%' }}

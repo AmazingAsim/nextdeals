@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebook,faWhatsapp, faTwitter, faTelegram,faReddit } from '@fortawesome/free-brands-svg-icons'
@@ -8,6 +8,9 @@ import { faFacebook,faWhatsapp, faTwitter, faTelegram,faReddit } from '@fortawes
 export default function AmazonCard({ product }) {
   const router = useRouter();
   const [expanded, setExpanded] = useState(false);
+  const [imageurl, setImageUrl] = useState(product.image);
+
+  
 
   const {
     name,
@@ -22,7 +25,20 @@ export default function AmazonCard({ product }) {
     id,
   } = product;
 
-
+  useEffect(()=>{
+    
+if(asin){
+    setImageUrl(product.image)
+  }
+  else{
+    if(product.image.match(/^https?:\/\//)){
+      setImageUrl(product.image)
+    }
+    else{
+      setImageUrl(`${imagBaseUrl}/${product.image}`)
+    }
+  }
+  },[product])
 
   const discount = (((original_price - selling_price) / original_price) * 100);
   const formattedDiscount = discount.toFixed(2);
@@ -53,7 +69,8 @@ export default function AmazonCard({ product }) {
         )}
       </div>
       <img
-        src={asin ? image : `${imagBaseUrl}/${image}`}
+        src={imageurl}
+        // src={asin ? image : `${imagBaseUrl}/${image}`}
         className="img-fluid rounded"
         alt={`${imagBaseUrl}/${image}`}
         style={{ maxHeight: '200px', objectFit: 'contain', width: '100%' }}
