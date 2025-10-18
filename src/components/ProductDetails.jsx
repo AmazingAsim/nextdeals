@@ -43,7 +43,7 @@ export default function ProductDetails({pid,store,product}) {
        setImageUrl(product.image)
      }
      else{
-       i = encodeSpacesInUrl(`${imagBaseUrl}/${product.image}`);
+       let i = encodeSpacesInUrl(`${imagBaseUrl}/${product.image}`);
        setImageUrl(i)
      }
    }
