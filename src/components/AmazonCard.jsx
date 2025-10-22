@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebook,faWhatsapp, faTwitter, faTelegram,faReddit } from '@fortawesome/free-brands-svg-icons'
 
+
 export default function AmazonCard({ product }) {
   const router = useRouter();
   const [expanded, setExpanded] = useState(false);
@@ -97,7 +98,7 @@ if(asin){
           <div>
             <p className="fs-4">
               <b className="text-success">
-                {formattedDiscount !== 'NaN' && formattedDiscount !== '0.00'
+                {formattedDiscount !== 'NaN' && formattedDiscount !== '0.00' && original_price!=0
                   ? `-${formattedDiscount}%`
                   : ''}
               </b>
