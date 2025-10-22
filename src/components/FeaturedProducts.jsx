@@ -27,8 +27,10 @@ export default function FeaturedProducts() {
 
       // Filter deals where selling_price < original_price
       newProducts = newProducts.filter((item) => {
-        const discount = ((item.original_price - item.selling_price) / item.original_price) * 100;
-        return item.original_price > item.selling_price && discount >= discountFilter;
+        let original_price = parseFloat(item.original_price);
+        let selling_price = parseFloat(item.selling_price);
+        const discount = ((original_price-selling_price) /original_price) * 100;
+        return original_price >= selling_price && discount >= discountFilter;
       });
 
       if (newPage === 1) {
