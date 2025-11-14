@@ -18,8 +18,21 @@ export async function generateMetadata({ params }) {
   const res = await fetch(fetchUrl, { cache: 'no-store' });
   const product = await res.json();
 
-  const rawImage = is_asin ? product.image : `${imagBaseUrl}/${product.image}`;
+  let rawImage;
+  if(is_asin){
+     rawImage = (product.image)
+   }
+   else{
+     if(product.image.match(/^https?:\/\//)){
+       rawImage = (product.image)
+     }
+     else{
+       let i = (`${imagBaseUrl}/${product.image}`);
+       rawImage = i
+     }
+   }
   console.log(rawImage)
+  
 
   const pageUrl =`https://www.spentaconsulting.com/product-details/${pid}/${store}`;
 
